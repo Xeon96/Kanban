@@ -1,0 +1,23 @@
+<form
+    action=""
+    class="row gx-3 gy-2 align-items-center justify-content-center"
+  >
+    <div class="col-sm-6">
+      <label for="specificSizeInputName" class="visually-hidden">Wish</label>
+      <input
+        name="new-wish-text"
+        type="text"
+        class="form-control"
+        [(ngModel)]="newTask"
+      />
+    </div>
+    <div class="col-auto">
+      <button
+        type="submit"
+        class="btn btn-primary"
+        (click)="$event.preventDefault(); addNewTask()"
+      >
+        Add Task
+      </button>
+    </div>
+  </form>

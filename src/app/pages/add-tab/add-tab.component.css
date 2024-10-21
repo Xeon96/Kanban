@@ -1,0 +1,20 @@
+/* .header{
+    padding: 15px 20px;
+    color: white;
+    
+}
+
+.Tab-Wrapper{
+    height: 90%;
+    width: 90%;
+} */
+
+.header {
+    padding: 15px 20px;
+    color: white;
+}
+
+.Tab-Wrapper {
+    height: auto; /* Adjusted for better fit */
+    width: 100%; /* Full width */
+}

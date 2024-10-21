@@ -1,0 +1,43 @@
+<div class="root bg-image">
+  <div class="navbar has-background-dark">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <h1 class="app-name has-gradient-text">Kanban</h1>
+      </div>
+    </div>
+  </div>
+  <div class="board">
+    <div class="board-bar d-flex justify-content-between align-items-center">
+      <p class="board-name mb-0">{{ BoardName }}</p>
+      <a
+        (click)="$event.preventDefault(); ShowHidePanel()"
+        class="btn btn-primary text-light"
+        ><i class="bi bi-plus-lg"> Add Tabs</i></a
+      >
+    </div>
+    <div></div>
+    <div class="board-wrapper">
+      <div class="board-columns" cdkDropListGroup>
+        <div class="board-column" *ngFor="let column of board.columns">
+          <div class="column-title">{{ column.name }}</div>
+          <add-task [TabDetails]="column.tasks"></add-task>
+          <div
+            class="tasks-container"
+            cdkDropList
+            [cdkDropListData]="column.tasks"
+            (cdkDropListDropped)="drop($event)"
+          >
+            <div class="task" *ngFor="let item of column.tasks" cdkDrag>
+              {{ item }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="backPanel" *ngIf="AddTabisVisisble" (click)="ShowHidePanel()"> 
+</div>
+<div class="AddNewTab" *ngIf="AddTabisVisisble">
+  <app-add-tab (addTab)="addNewTab($event)"></app-add-tab>
+</div>

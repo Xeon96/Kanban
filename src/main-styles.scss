@@ -1,0 +1,30 @@
+//global styles and changing bulma variables
+
+//Import google font
+//@import url('https://fonts.googleapis.com/css2?family=Nunito:400,700|Lato:400,800,900');
+
+$family-sans-serif: "Nunito", sans-serif;
+
+$control-border-width: 2px;
+$input-border-color: transparent;
+$input-shadow: none;
+
+/* Global styles */
+html, body {
+height: 100%;
+
+
+}
+html{
+    overflow-y: auto !important;
+    // background-image: url('../assets/blue-background-7470781_1280.jpg') !important;
+    // background-size: cover;
+    // background-position: center;
+    // height: 100vh; /* Full viewport height */
+}
+.bg-image{
+    background-image: url('../assets/blue-background-7470781_1280.jpg'); /* Replace with your image URL */
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Full viewport height */
+}

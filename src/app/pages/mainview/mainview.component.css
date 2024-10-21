@@ -1,0 +1,160 @@
+@import "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css";
+.root{
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    height: 100%;
+    z-index: 1;
+    position: relative;
+}
+
+
+.app-name{
+    font-size: 28px;
+    font-weight: bold;
+    font-family: 'Lato',sans-serif;
+}
+
+.has-gradient-text{
+    background: -webkit-linear-gradient(#13f7f4,#2af598);
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+
+.backPanel{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 100%; 
+    height: 100%;
+    z-index: 10; 
+    transform: translate(-50%, -50%);
+    opacity: 0.5; 
+    background-color: white; 
+}
+.AddNewTab{
+    position: fixed;
+    opacity: 1;
+    background-color: transparent; 
+    top: 40%;
+    left: 50%;
+    width: 20%; 
+    height: 20%;
+    z-index: 20; 
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+}
+.board{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    min-width: 0;
+    min-height: 0;
+
+    .board-bar {
+        /* background: gray; */
+        background-color: rgba(128, 128, 128, 0.5);
+        padding: 8px 15px;
+        
+        .board-name{
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+        }
+    
+    }
+    .board-bar{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .board-wrapper{
+
+        display: flex;
+        flex-grow: 1;
+        overflow-y: auto !important;
+        flex-direction: row;
+         
+
+        .board-columns {
+            display: flex;
+            flex-direction: row;
+            flex-grow: 1;
+
+            .board-column{
+                display: flex;
+                flex-direction: column;
+                flex-grow: 1;
+                background:  rgba(255, 255, 255, 0.5);
+                flex-basis: 0;
+
+                min-width: 400px;
+                max-width: 500px;
+                margin: 50px;
+                padding: 25px;
+
+                border-radius: 10px;
+
+                &:not(:first-child){
+                    margin-left: 0;
+                }
+
+                .column-title{
+                    font-size: 20px;
+                    font-weight: 800;
+                    font-family: 'Lato',sans-serif;
+                    text-transform: uppercase;
+                    margin-bottom: 20px;
+                }
+                .tasks-container {
+                    flex-grow: 1;            
+                    overflow-y: auto; /* Enable vertical scrolling */
+                    padding: 10px; /* Optional: add some padding */
+                    scrollbar-width: none;
+                }
+                
+
+            }
+        }
+    }
+}
+
+
+.tasks-container{
+        flex-grow: 1;            
+}
+
+.task{
+    display: flex;
+    padding: 15px 12px;
+    background: white;
+    border-bottom: solid 1px #ddd; 
+    border-radius: 5px;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.05),
+    0 3px 14px 2px rgba(0, 0, 0, 0.05);
+
+    margin-bottom: 15px;
+}
+
+.cdk-drag-preview {
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+                0 8px 10px 1px rgba(0, 0, 0, 0.14),
+                0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.cdk-drag-placeholder {
+    opacity: 0;
+}
+
+.cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+
+.tasks-container.cdk-drop-list-dragging .task:not(.cdk-drag-placeholder) {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
